@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./install.sh)",
+      "Bash(./install.sh --uninstall)",
+      "Bash(scripts/preview.py)",
+      "Bash(scripts/preview.py:*)",
+      "Bash(python3 scripts/preview.py:*)",
+      "Bash(omp gallery:*)",
+      "Bash(omp --version)",
+      "Bash(herdr-app shot:*)",
+      "Bash(herdr-app status)"
+    ]
+  }
+}
