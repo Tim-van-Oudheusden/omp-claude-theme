@@ -1,0 +1,29 @@
+# Opt-in omp settings for the closest Claude desktop look; the themes set only colors.
+# `./install.sh --preset` writes each key with `omp config set`; `--preset --dry-run` only shows them.
+# Same shape as ~/.omp/agent/config.yml, so `omp --config presets/claude-desktop.yml` tries it for one run.
+# Keys checked against omp 19.1.1; re-check them after an omp upgrade.
+# Values are single-line scalars or compact JSON arrays: install.sh passes them to omp verbatim.
+
+tui:
+  colorfulMarkdown: false
+  reactions: false
+  hyperlinks: always
+
+composer:
+  shape: box
+
+statusLine:
+  preset: custom
+  leftSegments: ["model","mode","status"]
+  rightSegments: ["context_pct"]
+  separator: none
+  sessionAccent: false
+
+display:
+  shimmer: disabled
+
+read:
+  renderMarkdown: true
+
+terminal:
+  programStatus: true

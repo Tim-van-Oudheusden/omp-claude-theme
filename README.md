@@ -19,15 +19,38 @@ Or pick **claude-desktop-dark** / **claude-desktop-light** in omp's `/settings` 
 omp picks the dark or light one from the terminal's background. `./install.sh --uninstall`
 removes the files; `PI_CODING_AGENT_DIR` targets another agent dir.
 
-### Closest to the desktop app
+### Closest to the desktop app: `--preset`
 
-omp's colorful Markdown (on by default) paints headings, bold and inline code from the terminal's
-ANSI colors. Claude's chat keeps headings and bold in the text color and inline code red. To get
-that:
+The themes set colors only; the rest of the look comes from omp settings. `presets/claude-desktop.yml`
+holds the ones that differ from Claude desktop. It is opt-in: nothing else in this repo applies it.
 
 ```sh
-omp config set tui.colorfulMarkdown false
+./install.sh --preset --dry-run   # show each key's current and new value, write nothing
+./install.sh --preset             # write the changed keys with `omp config set`
+omp --config presets/claude-desktop.yml   # or try it for one run
 ```
+
+| Setting | omp default | Preset | Why |
+|---|---|---|---|
+| `tui.colorfulMarkdown` | `true` | `false` | Claude keeps headings and bold in the text color and inline code red; the colorful mode paints them from the terminal's ANSI colors |
+| `tui.reactions` | `true` | `false` | no emoji reactions on your messages |
+| `tui.hyperlinks` | `auto` | `always` | every link is clickable (Herdr renders OSC 8 links) |
+| `composer.shape` | `band` | `box` | a rounded card around the prompt, status in its top border |
+| `statusLine.preset` | `default` | `custom` | only the model picker sits next to Claude's composer |
+| `statusLine.leftSegments` | `vim`, `model`, `mode`, `path`, `git`, `pr` | `model`, `mode`, `status` | `mode` keeps plan/bash modes visible, `status` keeps extension statuses; Herdr's pane header already shows folder and branch |
+| `statusLine.rightSegments` | `session_name`, `token_total`, `cost`, `context_pct` | `context_pct` | context use only |
+| `statusLine.separator` | `powerline-thin` | `none` | no powerline arrows |
+| `statusLine.sessionAccent` | `true` | `false` | the composer border is never tinted per session |
+| `display.shimmer` | `classic` | `disabled` | the spark spinner is the working indicator, no text shimmer |
+| `read.renderMarkdown` | `false` | `true` | Markdown documents show rendered |
+| `terminal.programStatus` | `true` | `true` | kept on: Herdr's agent status dots read it (OSC 7501) |
+
+Keys already at the preset value are left alone. Undo one with `omp config reset <key>`, which
+removes it from `config.yml` so omp's default applies again.
+
+The preset picks `box` because it only outlines the composer. The filled shapes (`field`, `rail`)
+paint it with the theme's `userMessageBg`, which here is the user bubble color (`--bg-300`), not
+Claude's composer card (`--bg-000`). The themes keep the bubble right instead.
 
 The themes' `terminal` section is the terminal they were made for (`#262624` / `#faf9f5`
 background). The same palette ships for the Herdr app in

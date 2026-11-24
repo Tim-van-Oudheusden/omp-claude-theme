@@ -5,6 +5,10 @@ CLI): `themes/claude-desktop-dark.json`, `themes/claude-desktop-light.json`. Sib
 Herdr app: `~/Git/herdr-claude-theme`; keep surface, text, clay and ANSI values identical across
 both (README "Where the colors come from" names each source token).
 
+`presets/claude-desktop.yml` (applied by `./install.sh --preset`) sets omp settings for the rest of
+the desktop look. Keep it opt-in: nothing applies it implicitly. Re-check its keys and values
+against the installed omp (`omp config list --json`) after an omp upgrade.
+
 ## You are probably running inside omp
 
 The session editing this repo is usually omp itself, inside Herdr. Keep it intact:
