@@ -59,6 +59,7 @@
 
 		"mdHeading": "text100",
 		"mdLink": "blue",
+		"mdExtensionLink": "clay",
 		"mdLinkUrl": "text400",
 		"mdCode": "inlineCode",
 		"mdCodeBlock": "codeFg",
@@ -112,7 +113,8 @@
 		"subagent2": "mineral",
 		"subagent3": "blue",
 		"subagent4": "amber",
-		"subagent5": "green"
+		"subagent5": "green",
+		"subagent6": "violet"
 	},
 	"export": {
 		"pageBg": "#faf9f5",

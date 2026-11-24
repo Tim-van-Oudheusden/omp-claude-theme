@@ -39,11 +39,11 @@ background). The same palette ships for the Herdr app in
 |---|---|
 | terminal background, `userMessageBg`, `toolPendingBg`, `statusLineBg` | `--bg-100`, `--bg-300` (user bubble), `--bg-000` (cards), `--bg-200` (sidebar) |
 | `text`, `toolOutput`, `muted`, `dim` | `--text-100`, `--text-200`, `--text-400`, `--text-500` |
-| `accent`, `borderAccent`, `statusLineModel` | `--accent-brand` clay `#d97757` (light: `--brand-000` `#c6613f`) |
+| `accent`, `borderAccent`, `statusLineModel`, `mdExtensionLink` | `--accent-brand` clay `#d97757` (light: `--brand-000` `#c6613f`) |
 | `mdLink`, `thinkingLow`, `statusLineContext` | `--accent-000` blue |
 | `mdCode` | `--danger-000`, the color of claude.ai's inline code |
 | `success`, `error`, `warning`, diffs | `--success-*`, `--danger-*`, `--warning-*` |
-| `customMessageLabel`, `thinkingMedium` | `--accent-pro-*` violet |
+| `customMessageLabel`, `thinkingMedium`, `subagent6` | `--accent-pro-*` violet |
 | `syntax*`, `mdCodeBlock` | One Dark (dark); One Light (light, since omp can't paint the code block's background) |
 | `subagent1`–`5` | Anthropic's plum, mineral, peach and cactus, plus blue/amber/green in light |
 
