@@ -41,6 +41,7 @@ omp --config presets/claude-desktop.yml   # or try it for one run
 | `statusLine.rightSegments` | `session_name`, `token_total`, `cost`, `context_pct` | `context_pct` | context use only |
 | `statusLine.separator` | `powerline-thin` | `none` | no powerline arrows |
 | `statusLine.sessionAccent` | `true` | `false` | the composer border is never tinted per session |
+| `statusLine.contextLine` | `embedded` | `off` | no context meter drawn into the composer border; the `context_pct` segment shows the percentage instead |
 | `display.shimmer` | `classic` | `disabled` | the spark spinner is the working indicator, no text shimmer |
 | `read.renderMarkdown` | `false` | `true` | Markdown documents show rendered |
 | `terminal.programStatus` | `true` | `true` | kept on: Herdr's agent status dots read it (OSC 7501) |
@@ -62,11 +63,12 @@ background). The same palette ships for the Herdr app in
 |---|---|
 | terminal background, `userMessageBg`, `toolPendingBg`, `statusLineBg` | `--bg-100`, `--bg-300` (user bubble), `--bg-000` (cards), `--bg-200` (sidebar) |
 | `text`, `toolOutput`, `muted`, `dim` | `--text-100`, `--text-200`, `--text-400`, `--text-500` |
-| `accent`, `borderAccent`, `statusLineModel`, `mdExtensionLink` | `--accent-brand` clay `#d97757` (light: `--brand-000` `#c6613f`) |
-| `mdLink`, `thinkingLow`, `statusLineContext` | `--accent-000` blue |
+| `border`, `borderAccent`, `thinking*` | the border gray; the composer border (thinking level) and context meter (`borderAccent`) stay neutral like Claude's |
+| `accent`, `statusLineModel`, `mdExtensionLink` | `--accent-brand` clay `#d97757` (light: `--brand-000` `#c6613f`) |
+| `mdLink`, `statusLineContext` | `--accent-000` blue |
 | `mdCode` | `--danger-000`, the color of claude.ai's inline code |
 | `success`, `error`, `warning`, diffs | `--success-*`, `--danger-*`, `--warning-*` |
-| `customMessageLabel`, `thinkingMedium`, `subagent6` | `--accent-pro-*` violet |
+| `customMessageLabel`, `subagent6` | `--accent-pro-*` violet |
 | `syntax*`, `mdCodeBlock` | One Dark (dark); One Light (light, since omp can't paint the code block's background) |
 | `subagent1`–`5` | Anthropic's plum, mineral, peach and cactus, plus blue/amber/green in light |
 

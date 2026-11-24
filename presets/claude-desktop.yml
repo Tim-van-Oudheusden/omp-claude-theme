@@ -2,7 +2,8 @@
 # `./install.sh --preset` writes each key with `omp config set`; `--preset --dry-run` only shows them.
 # Same shape as ~/.omp/agent/config.yml, so `omp --config presets/claude-desktop.yml` tries it for one run.
 # Keys checked against omp 19.1.1; re-check them after an omp upgrade.
-# Values are single-line scalars or compact JSON arrays: install.sh passes them to omp verbatim.
+# Values are single-line scalars or compact JSON arrays; install.sh passes them to omp as written,
+# minus the quotes around a quoted scalar ("off" is quoted so YAML 1.1 readers don't make it false).
 
 tui:
   colorfulMarkdown: false
@@ -18,6 +19,7 @@ statusLine:
   rightSegments: ["context_pct"]
   separator: none
   sessionAccent: false
+  contextLine: "off"
 
 display:
   shimmer: disabled

@@ -15,7 +15,8 @@ dir="${PI_CODING_AGENT_DIR:-$HOME/.omp/agent}/themes"
 themes=(claude-desktop-dark claude-desktop-light)
 preset="$src/presets/claude-desktop.yml"
 
-# Print the preset as `dotted.key<TAB>value` lines: nested maps of single-line values only.
+# Print the preset as `dotted.key<TAB>value` lines: nested maps of single-line values only;
+# a double-quoted scalar loses its quotes.
 preset_entries() {
   awk '
     /^[[:space:]]*(#|$)/ { next }
@@ -24,6 +25,7 @@ preset_entries() {
       line = substr($0, indent + 1)
       key = line; sub(/:.*/, "", key)
       value = line; sub(/^[^:]*:[[:space:]]*/, "", value); sub(/[[:space:]]+$/, "", value)
+      if (value ~ /^".*"$/) value = substr(value, 2, length(value) - 2)
       while (depth > 0 && indents[depth] >= indent) depth--
       path = ""
       for (i = 1; i <= depth; i++) path = path keys[i] "."
